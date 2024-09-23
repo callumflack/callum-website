@@ -21,7 +21,7 @@ export const LinkWithArrow = ({
     <Link
       className={cx(
         isExternal
-          ? "pr-[0.45em] relative"
+          ? "pr-[0.35em] relative"
           : "inline-flex items-center gap-[2px]",
         className
       )}
@@ -31,7 +31,7 @@ export const LinkWithArrow = ({
       {isExternal ? (
         <ChevronRightIcon
           className={cx(
-            "absolute right-[-0.1em] top-[0.1em] size-[0.7em]",
+            "absolute right-[-0.2em] top-[0.15em] size-[0.7em]",
             "transform -rotate-45",
             "!no-underline",
             iconClassName

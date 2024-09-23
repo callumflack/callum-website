@@ -93,8 +93,12 @@ export const PagePost = ({ post }: { post: Post }) => {
                 {endYear}
               </>
             ) : null}
-            <hr className="hr-vertical border-border-hover h-[13px]" />
-            {readingTimeText}
+            {post.category === "writing" ? (
+              <>
+                <hr className="hr-vertical border-border-hover h-[13px]" />
+                {readingTimeText}
+              </>
+            ) : null}
           </>
         }
       >
