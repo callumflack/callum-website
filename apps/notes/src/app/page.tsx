@@ -15,9 +15,9 @@ export default function HomePage(): JSX.Element {
     <PageWrapper>
       <main
         className={cx(
-          "min-h-screen sm:min-h-fit relative"
+          "min-h-screen sm:min-h-fit relative",
           // pt-w12 space-y-w12
-          // "pb-w24"
+          "pb-w24"
         )}
         id="posts"
       >

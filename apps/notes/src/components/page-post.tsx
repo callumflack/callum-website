@@ -1,6 +1,7 @@
 import { TitleHeader } from "@repo/ui/elements";
 import { formatPostDate } from "@repo/ui/utils";
 import { Link, Text } from "@repo/ui/atoms";
+import { cx } from "cva";
 import { Mdx } from "@/components/mdx-components";
 import { type Post } from "contentlayer/generated";
 // import { PostMeta } from "./post-meta";
@@ -27,7 +28,9 @@ export const PagePost = ({ post, isIndex }: PagePostProps) => {
           {post.title}
         </TitleHeader>
       )}
-      <article className="container flex flex-col pb-w20">
+      <article
+        className={cx("container flex flex-col", isIndex ? "" : "pb-w20")}
+      >
         <Mdx code={post.body.code}>
           {/* {!isIndex ? <PostMeta post={post} /> : null} */}
         </Mdx>
