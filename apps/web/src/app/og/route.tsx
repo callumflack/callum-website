@@ -5,7 +5,8 @@ export const runtime = "edge";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") || "Next.js Portfolio Starter";
+  const title = searchParams.get("title") || "Callum Flack";
+  const description = searchParams.get("description") || "Callum Flack";
 
   const fontData = await fetch(
     new URL(
@@ -17,11 +18,22 @@ export async function GET(request: Request) {
 
   return new ImageResponse(
     (
-      <div tw="flex flex-col w-full h-full items-center justify-center bg-design text-canvas">
-        <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
-          <h2 tw="flex flex-col text-4xl font-bold tracking-tight text-left">
-            {title}
-          </h2>
+      <div tw="flex flex-col w-full h-full justify-end bg-gray-200 relative">
+        {/* <div tw="flex justify-end px-12 py-7">
+          <img
+            height="128"
+            src="https://github.com/callumflack.png"
+            style={{
+              borderRadius: 64,
+            }}
+            width="128"
+          />
+        </div> */}
+        <div tw="flex flex-col w-[93%] px-12 py-7">
+          <h2 tw="text-4xl font-medium tracking-tight">{title}</h2>
+          <p tw="text-4xl font-medium text-[#777] leading-[1.1]">
+            {description}
+          </p>
         </div>
       </div>
     ),

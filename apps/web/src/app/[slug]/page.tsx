@@ -39,7 +39,7 @@ export function generateMetadata({ params }: { params: Params }) {
   // const ogImage = assets?.[0]?.src
   //   ? `${config.PUBLIC_URL}${assets[0].src}`
   //   : `${config.PUBLIC_URL}/og?title=${encodeURIComponent(title)}`;
-  const ogImage = `${config.PUBLIC_URL}/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `${config.PUBLIC_URL}/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 
   return {
     title,
