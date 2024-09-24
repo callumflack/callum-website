@@ -34,12 +34,10 @@ export function generateMetadata({ params }: { params: Params }) {
     return;
   }
 
-  const { title: postTitle, date: publishedTime, description, assets } = post;
-  const title = `${postTitle} —— Callum Flack`;
-  const ogImage = assets?.[0]?.src
-    ? `${config.PUBLIC_URL}${assets[0].src}`
-    : `${config.PUBLIC_URL}/og?title=${encodeURIComponent(title)}`;
-  // const ogImage = `${config.PUBLIC_URL}/og?title=${encodeURIComponent(title)}`;
+  const { title: postTitle, date: publishedTime, description } = post;
+  const title = `${postTitle} —— Callum Flack Notes`;
+
+  const ogImage = `${config.PUBLIC_NOTES_URL}/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
 
   return {
     title,
@@ -49,7 +47,7 @@ export function generateMetadata({ params }: { params: Params }) {
       description,
       type: "article",
       publishedTime,
-      url: `${config.PUBLIC_URL}/${post.slug}`,
+      url: `${config.PUBLIC_NOTES_URL}/${post.slug}`,
       images: [
         {
           url: ogImage,
