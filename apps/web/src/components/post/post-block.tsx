@@ -23,8 +23,8 @@ export const PostBlock = ({
   return (
     <div
       className={cx(
-        "PostBlock group flex",
-        theme === "index" ? "flex-col gap-w4 sm:flex-row" : "flex-col gap-3"
+        "PostBlock group flex flex-col",
+        theme === "index" ? "gap-w4 sm:flex-row" : "gap-3"
       )}
     >
       {/* IMAGE */}
@@ -64,13 +64,17 @@ export const PostBlock = ({
           >
             <Text
               className={cx(
-                "bg-accent2 group-hover:bg-accent px-gap h-[20px] flex items-center",
-                "ease-linear transition-colors duration-300"
+                "bg-accent2 group-hover:bg-accent",
+                "px-gap h-[20px] flex items-center",
+                "ease-linear transition-colors duration-300",
+                theme === "index"
+                  ? "sm:rounded-bl-button"
+                  : "sm:rounded-tr-button"
               )}
               color="canvas"
               intent="fineHeading"
             >
-              <span className="transform translate-y-[0.15em]">New</span>
+              <span className="transform translate-y-[0.1em]">New</span>
             </Text>
           </div>
         ) : null}
