@@ -11,7 +11,7 @@ export const Signoff = () => {
   return (
     <>
       {/* space-y-[calc(6/16*1em)] */}
-      <Link className="space-y-2 pb-w4 lg:w-5/6" href="/">
+      <Link className="block space-y-2 pb-2.5 lg:w-5/6" href="/">
         <Text as="h1" balance intent="title">
           {heading}
         </Text>

@@ -16,7 +16,7 @@ export const FooterShape = ({
     <footer
       className={cx(
         "container relative flex flex-col",
-        "relative min-h-[calc(100vh-var(--height-nav)-1px)] justify-between pt-w20"
+        "relative min-h-[calc(100vh-var(--height-nav)-1px)] justify-between pt-submajor"
         // isHome && "mt-auto pt-w12",
       )}
     >

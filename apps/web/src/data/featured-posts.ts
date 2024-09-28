@@ -14,10 +14,10 @@ export const featuredWorkSlugs = [
 ];
 
 export const featuredWritingSlugs = [
+  "organising-design-system-styles",
   "the-instantaneous-language-of-beauty",
   "the-matter-of-taste",
-  "organising-design-system-styles",
-  "iteration-and-prototyping",
+  // "iteration-and-prototyping",
   "creativity-starts-with-love-and-theft",
 ];
 

@@ -40,7 +40,7 @@ export const Nav = ({
   return (
     <div
       // bg-opacity-70 backdrop-blur-md
-      className="Nav sticky top-0 z-[11] bg-canvas"
+      className="Nav sticky top-0 z-50 bg-canvas"
       id="top"
     >
       <nav

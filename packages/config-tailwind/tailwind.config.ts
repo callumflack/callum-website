@@ -130,6 +130,7 @@ const config: Omit<Config, "content"> = {
         gap: generateClampSize(500, 1200, 10.5, 16), // w4
         small: generateClampSize(500, 1200, 16, 24), // w8
         minor: generateClampSize(500, 1200, 32, 48), // w12
+        submajor: generateClampSize(500, 1200, 54, 80), // w20
         major: generateClampSize(500, 1200, 64, 96), // w24
       },
       letterSpacing: {

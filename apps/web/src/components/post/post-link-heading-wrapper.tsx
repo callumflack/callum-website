@@ -10,7 +10,7 @@ export const PostLinkHeadingWrapper = ({
       className={cx(
         "relative flex items-center gap-0.5",
         "group-hover:text-accent",
-        "ease transition-colors duration-300"
+        "transition-colors duration-300 ease-linear"
       )}
     >
       {children}

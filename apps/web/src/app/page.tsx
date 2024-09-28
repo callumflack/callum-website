@@ -1,24 +1,35 @@
-import { Text, spacingVariants } from "@repo/ui/atoms";
+import { Link, Text, textVariants } from "@repo/ui/atoms";
+import { LinkWithArrow, OutsetRule, TitleHeader } from "@repo/ui/elements";
 import { cx } from "cva";
 import type { CustomPost } from "@/app/(home)";
 import { HomeSnapCarousel, extraCard } from "@/app/(home)";
-import { Available, Avatar, ContactIcons } from "~/src/components/elements";
+import { WritingSubheading, writingHeading } from "@/app/writing/page";
+import { Available, Avatar, ContactIcons } from "@/components/elements";
 import { Mdx } from "@/components/mdx";
 import { PageWrapper } from "@/components/page";
-import { featuredSlugs } from "@/data";
+import { PostBlock } from "@/components/post/post-block";
+import { featuredWorkSlugs, featuredWritingSlugs } from "@/data";
 import { sortByCustomSlugOrder } from "@/utils";
 import { allPosts, type Post } from "contentlayer/generated";
 
-const filteredPosts = featuredSlugs.map((slug) =>
+const work = featuredWorkSlugs.map((slug) =>
+  allPosts.find((post) => post.slug === slug)
+);
+const writing = featuredWritingSlugs.map((slug) =>
   allPosts.find((post) => post.slug === slug)
 );
 
-const featuredPosts = sortByCustomSlugOrder(
-  filteredPosts.filter((post): post is Post => post !== undefined),
-  featuredSlugs
+const workPosts = sortByCustomSlugOrder(
+  work.filter((post): post is Post => post !== undefined),
+  featuredWorkSlugs
 );
 
-const allFeaturedPosts: CustomPost[] = [...featuredPosts, extraCard];
+const allWorkPosts: CustomPost[] = [...workPosts, extraCard];
+
+const writingPosts = sortByCustomSlugOrder(
+  writing.filter((post): post is Post => post !== undefined),
+  featuredWritingSlugs
+);
 
 const copyPosts = allPosts.filter(
   (p) => p.category === "home" && p.title.includes("intro")
@@ -29,11 +40,11 @@ export default function HomePage(): JSX.Element {
     <PageWrapper>
       {/* make this div fill the screen on mobile */}
       <div className="min-h-screen sm:min-h-fit">
-        <header className="container pb-w12 pt-w12">
-          <div className="pb-w4">
+        <header className="container pb-minor pt-minor">
+          <div className="pb-gap">
             <Avatar />
           </div>
-          <div className="space-y-2 lg:w-12/12">
+          <div className="space-y-2 lg:w-10/12">
             <Text as="h1" intent="title">
               Hi, I&rsquo;m Callum. I make beautiful hypertext products.
             </Text>
@@ -46,12 +57,49 @@ export default function HomePage(): JSX.Element {
           </div>
         </header>
 
-        <main
-          className={cx("relative", spacingVariants({ intent: "b-xl" }))}
-          id="work"
-        >
-          <HomeSnapCarousel posts={allFeaturedPosts} />
+        {/* PROJECTS */}
+        <main className="relative pb-major" id="work">
+          <HomeSnapCarousel posts={allWorkPosts} />
         </main>
+
+        {/* WRITING */}
+        <OutsetRule wrapperClassName="relative z-20" />
+        <section className="container pt-submajor pb-major">
+          <TitleHeader as="div" className="pb-minor" isContainedChild>
+            <Text
+              as="h2"
+              className="flex justify-between items-end"
+              intent="title"
+            >
+              {writingHeading}
+              <LinkWithArrow
+                className={cx(
+                  textVariants({
+                    intent: "meta",
+                    dim: true,
+                    link: "accent",
+                    weight: "normal",
+                  })
+                )}
+                href="/writing"
+              >
+                View all
+              </LinkWithArrow>
+            </Text>
+            <WritingSubheading />
+          </TitleHeader>
+
+          <div className="grid grid-cols-2 gap-inset">
+            {writingPosts.map((post) => (
+              <Link
+                href={post.thumbnailLink ? post.thumbnailLink : post.slug}
+                key={post._id}
+              >
+                <PostBlock post={post} theme="home" />
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </PageWrapper>
   );

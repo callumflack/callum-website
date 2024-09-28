@@ -19,6 +19,9 @@ export const Post = defineDocumentType(() => ({
     draft: {
       type: "boolean",
     },
+    showAsNew: {
+      type: "boolean",
+    },
     title: {
       type: "string",
       required: true,
