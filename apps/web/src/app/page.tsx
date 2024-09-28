@@ -3,7 +3,10 @@ import { LinkWithArrow, OutsetRule, TitleHeader } from "@repo/ui/elements";
 import { cx } from "cva";
 import type { CustomPost } from "@/app/(home)";
 import { HomeSnapCarousel, extraCard } from "@/app/(home)";
-import { WritingSubheading, writingHeading } from "@/app/writing/page";
+import {
+  writingHeading,
+  WritingSubheading,
+} from "@/app/writing/(components)/writing-components";
 import { Available, Avatar, ContactIcons } from "@/components/elements";
 import { Mdx } from "@/components/mdx";
 import { PageWrapper } from "@/components/page";
