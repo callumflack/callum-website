@@ -45,7 +45,7 @@ export const PageWrapper = ({
       {children}
 
       <FooterShape intersectionRef={intersectionRef}>
-        <TitleHeader as="div" isContained>
+        <TitleHeader as="div" isContainedChild>
           <Signoff />
         </TitleHeader>
         {footerChildren}

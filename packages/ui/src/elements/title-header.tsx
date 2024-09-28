@@ -1,20 +1,20 @@
 import { cx } from "cva";
 import * as React from "react";
-import { Text } from "../atoms/text";
+import { Text } from "@repo/ui/atoms";
 import type { PolymorphicProps } from "../atoms/polymorphic-element";
 import { PolymorphicElement } from "../atoms/polymorphic-element";
 
 type TitleHeaderProps = PolymorphicProps<React.ElementType> & {
-  subheading?: React.ReactNode;
-  isContained?: boolean;
+  isContainedChild?: boolean;
+  hasMetaSubheading?: boolean;
   className?: string;
 };
 
 export const TitleHeader = ({
   as,
   children,
-  subheading,
-  isContained,
+  isContainedChild,
+  hasMetaSubheading,
   className,
   ...props
 }: TitleHeaderProps) => {
@@ -22,24 +22,24 @@ export const TitleHeader = ({
     <PolymorphicElement
       as={as || "header"}
       className={cx(
-        "flex flex-col space-y-[3px] pb-w8",
-        isContained ? "" : "container pt-w20",
+        "TitleHeader text-balance",
+        hasMetaSubheading ? "space-y-[3px]" : "space-y-2",
+        isContainedChild ? "" : "container pt-submajor pb-small",
         className
       )}
       {...props}
     >
-      {typeof children === "string" ? (
-        <Text as="h1" intent="title">
-          {children}
-        </Text>
-      ) : (
-        children
-      )}
-      {subheading ? (
-        <Text as="div" className="flex items-center gap-2" dim intent="meta">
-          {subheading}
-        </Text>
-      ) : null}
+      {children}
     </PolymorphicElement>
   );
 };
+
+export const TitleMetaHeading = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
+  <Text className="flex items-center gap-2" dim intent="meta">
+    {children}
+  </Text>
+);

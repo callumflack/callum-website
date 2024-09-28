@@ -6,7 +6,7 @@
   2. Do not export if it's only used within this directory 
  */
 
-export { TitleHeader } from "./title-header";
+export { TitleHeader, TitleMetaHeading } from "./title-header";
 export { OutsetRule } from "./outset-rule";
 export { LinkWithArrow } from "./link-variants";
 export { Spinner } from "./spinner";

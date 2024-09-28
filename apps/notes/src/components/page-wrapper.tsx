@@ -6,6 +6,7 @@ import { cx } from "cva";
 import { Nav, FooterShape } from "@repo/ui/page";
 import config from "@repo/ui/config";
 import { TitleHeader } from "@repo/ui/elements";
+import { Text } from "@repo/ui/atoms";
 
 export const PageWrapper = ({
   activeNav,
@@ -47,12 +48,11 @@ export const PageWrapper = ({
       {children}
 
       <FooterShape intersectionRef={intersectionRef}>
-        <TitleHeader
-          as="div"
-          isContained
-          subheading="It&lsquo;s hard to believe you made it down this far."
-        >
-          More soon…
+        <TitleHeader as="div" isContainedChild>
+          <Text as="h2" intent="title">
+            More soon…
+          </Text>
+          <Text dim>It&lsquo;s hard to believe you made it down this far.</Text>
         </TitleHeader>
         {footerChildren}
       </FooterShape>

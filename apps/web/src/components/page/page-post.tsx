@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Link, Text } from "@repo/ui/atoms";
-import { TitleHeader } from "@repo/ui/elements";
+import { TitleHeader, TitleMetaHeading } from "@repo/ui/elements";
 import { getYear, isVideoFile, splitAspect } from "@repo/ui/utils";
 import NextImage from "next/image";
 import { mediaWrapperVariants, MediaWrapper } from "@repo/ui/media";
@@ -83,8 +83,11 @@ export const PagePost = ({ post }: { post: Post }) => {
         </>
       }
     >
-      <TitleHeader
-        subheading={
+      <TitleHeader hasMetaSubheading>
+        <Text as="h1" intent="title">
+          {post.title}
+        </Text>
+        <TitleMetaHeading>
           <>
             {year}
             {endYear ? (
@@ -100,9 +103,7 @@ export const PagePost = ({ post }: { post: Post }) => {
               </>
             ) : null}
           </>
-        }
-      >
-        {post.title}
+        </TitleMetaHeading>
       </TitleHeader>
 
       <div className="container flex flex-col pb-w20">
