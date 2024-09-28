@@ -91,6 +91,7 @@ const config: Omit<Config, "content"> = {
       },
       spacing: {
         em: "1em",
+        bullet: "1.35em",
         nav: "var(--height-nav)",
         tab: "var(--height-tab)",
         inset: "var(--space-inset)",

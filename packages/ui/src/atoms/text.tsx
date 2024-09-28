@@ -108,7 +108,7 @@ export const Text = ({
           dim,
           className,
         }),
-        Component === "ul" ? "pl-[2em]" : ""
+        Component === "ul" ? "pl-bullet" : ""
       )}
     >
       {formattedChildren}

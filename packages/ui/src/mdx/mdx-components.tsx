@@ -45,7 +45,7 @@ export const components = {
   ul: ({ children, ...props }: ListProps) => (
     <ul
       className={cx(
-        "space-y-0.5 pl-[2em]",
+        "space-y-0.5 pl-bullet",
         "[&>li]:relative [&>li]:before:content-[''] [&>li]:before:absolute [&>li]:before:inline-block [&>li]:before:bg-current [&>li]:before:-left-[1.3em] [&>li]:before:top-[0.75em] [&>li]:before:h-px [&>li]:before:w-[14px]"
       )}
       {...(props as TextProps)}
@@ -78,7 +78,7 @@ export const components = {
     <div className="py-1">
       <pre
         className={cx(
-          "Pre bg-background-hover rounded-soft overflow-auto",
+          "Pre bg-background-hover rounded-button overflow-auto",
           "[&_code]:overflow-auto [&_code]:py-2.5 [&_code]:pl-3 [&_code]:block",
           "[&_code]:leading-[1.6] [&_code]:hide-scrollbar",
           // overwrite prose code styles
