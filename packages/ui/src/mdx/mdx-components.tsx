@@ -27,13 +27,13 @@ export const components = {
     const isExternal = href && /^(?:https?:)?\/\//.test(href);
     return isExternal ? (
       <LinkWithArrow
-        className={cx(textVariants({ intent: "link" }))}
+        className={cx(textVariants({ link: "default" }))}
         href={href}
         {...props}
       />
     ) : (
       <Link
-        className={cx(textVariants({ intent: "link" }))}
+        className={cx(textVariants({ link: "default" }))}
         href={href || "#"}
         {...props}
       />

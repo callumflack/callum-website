@@ -5,7 +5,6 @@ export const textVariants = cva({
   base: "",
   variants: {
     intent: {
-      link: "link", // specified in theme-utils.css
       fine: "text-fine", // subpixel-antialiased?
       fineHeading: "text-fine font-bold uppercase tracking-metaHeading",
       meta: "text-meta",
@@ -31,6 +30,15 @@ export const textVariants = cva({
       center: "text-center",
       right: "text-right",
     },
+    link: {
+      // styles specified in theme-utils.css
+      default: "link",
+      accent: "link-accent",
+      large: "link-large",
+    },
+    dim: {
+      true: "!text-solid",
+    },
     caps: {
       true: "uppercase",
     },
@@ -48,9 +56,6 @@ export const textVariants = cva({
         "list-disc",
       ],
     },
-    dim: {
-      true: "!text-solid",
-    },
   },
   // Compound variants apply classes when multiple other variant conditions are met: https://cva.style/docs/getting-started/variants#compound-variants
   compoundVariants: [
@@ -61,7 +66,7 @@ export const textVariants = cva({
     // },
   ],
   defaultVariants: {
-    intent: "body",
+    // intent: "body",
   },
 });
 
@@ -117,7 +122,6 @@ export const Text = ({
   );
 };
 
-// This fucking bullshit doesn't work…
 // Doubles: &ldquo; &rdquo;  “ ” "Pretty"
 // Singles: &lsquo; &rsquo; ’ ‘ 'Pretty'
 function formatText(text: string): string {

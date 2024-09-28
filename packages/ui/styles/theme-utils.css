@@ -3,8 +3,8 @@
     @apply relative;
     @apply underline underline-offset-[0.25em];
     @apply decoration-solid decoration-[0.025em];
-    @apply hover:text-accent;
-    @apply hover:decoration-accent hover:decoration-[0.05em];
+    @apply hover:!text-accent hover:decoration-accent hover:decoration-[0.05em];
+    @apply ease-linear transition-colors duration-300;
   }
 
   /* must add a height when used within a flex parent */
@@ -77,8 +77,7 @@
 
 @layer components {
   /* parent link modifiers */
-  .link-block a:not(.Button),
-  .Prose a:not(.Button) {
+  .link-block a:not(.Button) {
     @apply link;
   }
   .link-alt,
@@ -88,9 +87,7 @@
   }
   .link-accent,
   .link-block-accent a:not(.Button) {
-    @apply link;
-    @apply bg-accent1-background hover:bg-accent;
-    @apply hover:text-fill;
+    @apply link !decoration-transparent;
   }
   .link-large,
   .link-block-large a:not(.Button) {
