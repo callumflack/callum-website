@@ -1,11 +1,10 @@
-import { Text, spacingVariants } from "@repo/ui/atoms";
+import { Text } from "@repo/ui/atoms";
 import { TitleHeader } from "@repo/ui/elements";
-import { cx } from "cva";
 import { PageWrapper } from "@/components/page";
 // import type { PostsKind } from "@/components/post";
 // import type { SearchParams } from "@/types/search-params";
-import { GraphicsGrid } from "./graphics-grid";
 import { getProjects } from "./actions";
+import { GraphicsGrid } from "./graphics-grid";
 
 /* 
   TODO:
@@ -34,12 +33,7 @@ export default async function GraphicsIndexPage() {
     <PageWrapper>
       <TitleHeader>{heading}</TitleHeader>
       {/* <PagePostsIndexClient initialSort={currentSort} kind={kind} /> */}
-      <main
-        className={cx(
-          "container max-w-hero-px pt-tab",
-          spacingVariants({ intent: "b-xl" })
-        )}
-      >
+      <main className="container max-w-hero-px pt-tab pb-major">
         <GraphicsGrid projects={projects} />
       </main>
     </PageWrapper>

@@ -3,7 +3,6 @@
 import { Fragment, useState, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { cx } from "cva";
-// import { spacingVariants } from "@repo/ui/atoms";
 import type { PostsKind } from "@/components/post";
 import {
   PostsListBlock,
@@ -49,10 +48,7 @@ export const PagePostsIndexClient = ({
   };
 
   return (
-    <main
-      // spacingVariants({ intent: "b-xl" })?
-      className={cx("container relative pb-w24")}
-    >
+    <main className={cx("container relative pb-major")}>
       <ListHeader
         className={cx(
           "top-nav translate-y-px transform",

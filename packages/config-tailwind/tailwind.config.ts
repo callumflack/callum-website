@@ -125,6 +125,12 @@ const config: Omit<Config, "content"> = {
         w64: generateClampSize(500, 1200, 171, 256),
         w72: generateClampSize(500, 1200, 192, 288),
         w96: generateClampSize(500, 1200, 256, 384),
+
+        // semantic spacers
+        gap: generateClampSize(500, 1200, 10.5, 16), // w4
+        small: generateClampSize(500, 1200, 16, 24), // w8
+        minor: generateClampSize(500, 1200, 32, 48), // w12
+        major: generateClampSize(500, 1200, 64, 96), // w24
       },
       letterSpacing: {
         ...letterSpacing,
