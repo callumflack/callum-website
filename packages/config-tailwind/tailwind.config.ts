@@ -55,13 +55,13 @@ const config: Omit<Config, "content"> = {
         fill: "var(--color-gray-fill-contrast)",
 
         // ACCENTS
-        "accent-background": "var(--color-accent-bg)",
-        accent: "var(--color-accent-solid)",
-        "accent-hover": "var(--color-accent-solid-hover)",
-        "highlight-background": "var(--color-highlight-bg)",
-        highlight: "var(--color-highlight-solid)",
-        "highlight-hover": "var(--color-highlight-solid-hover)",
-        design: "var(--color-design)",
+        "accent1-background": "var(--color-accent1-bg)",
+        accent: "var(--color-accent1-solid)",
+        "accent1-hover": "var(--color-accent1-solid-hover)",
+        accent2: "var(--color-accent2)",
+        "accent3-background": "var(--color-accent3-bg)",
+        accent3: "var(--color-accent3-solid)",
+        "accent3-hover": "var(--color-accent3-solid-hover)",
 
         // ALPHAS: text-black-a4
         black: generateScale("black"),

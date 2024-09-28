@@ -48,20 +48,18 @@
     --color-gray-fill: var(--gray-11);
     --color-gray-fill-contrast: var(--gray-12);
 
-    /* ACCENT */
-    --color-accent-bg: var(--red-3);
-    --color-accent-solid: var(--red-9);
-    --color-accent-solid-hover: var(--red-10);
+    /* ACCENT 1 (red) */
+    --color-accent1-bg: var(--red-3);
+    --color-accent1-solid: var(--red-9);
+    --color-accent1-solid-hover: var(--red-10);
 
-    /* HIGHLIGHT ACCENT */
-    --color-highlight-bg: var(--amber-3);
-    --color-highlight-solid: var(--amber-9);
-    --color-highlight-solid-hover: var(--amber-10);
+    /* ACCENT 2 (orange) */
+    --color-accent2: var(--orange-9);
 
-    /* SKILLS */
-    --color-design: var(--orange-9);
-    --color-strategy: var(--plum-9);
-    --color-teamwork: var(--crimson-9);
+    /* ACCENT 3 (yellow) */
+    --color-accent3-bg: var(--amber-2);
+    --color-accent3-solid: var(--amber-9);
+    --color-accent3-solid-hover: var(--amber-10);
   }
 }
 
@@ -78,12 +76,12 @@
   /* only used on home page! */
   /* --color-gray-bg-active: #0d141f; */
   --color-gray-bg-active: var(--sky-1);
-  /* I don't really want to do this, solid is otherwise not legible… */
+  /* I don't really want to do this, but solid is otherwise not legible… */
   --color-gray-solid: var(--gray-10);
   /* …and I hate burning my eyes in dark mode */
   --color-gray-fill-contrast: var(--gray-11);
 
-  --color-accent-bg: var(--amber-3);
-  --color-accent-solid: var(--amber-9);
-  --color-accent-solid-hover: var(--amber-10);
+  --color-accent1-bg: var(--amber-3);
+  --color-accent1-solid: var(--amber-9);
+  --color-accent1-solid-hover: var(--amber-10);
 }

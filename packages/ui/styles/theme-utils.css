@@ -89,7 +89,7 @@
   .link-accent,
   .link-block-accent a:not(.Button) {
     @apply link;
-    @apply bg-accent-background hover:bg-accent;
+    @apply bg-accent1-background hover:bg-accent;
     @apply hover:text-fill;
   }
   .link-large,

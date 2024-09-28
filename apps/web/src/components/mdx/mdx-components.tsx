@@ -2,8 +2,8 @@ import { useMDXComponent } from "next-contentlayer2/hooks";
 import { components as uiMdxComponents } from "@repo/ui/mdx-components";
 import { Prose } from "@repo/ui/elements";
 import type { ComponentPropsWithoutRef } from "react";
-import { Available, ContactIcons } from "~/src/components/elements";
 import { cx } from "cva";
+import { Available, ContactIcons } from "~/src/components/elements";
 
 export const components = {
   ...uiMdxComponents,
@@ -35,8 +35,8 @@ type DivProps = ComponentPropsWithoutRef<"div">;
 const Callout = ({ children }: DivProps) => (
   <div
     className={cx(
-      "bg-highlight-background px-3 py-2.5 rounded-soft space-y-1.5",
-      "[&_code]:bg-black-a2"
+      "bg-accent3-background px-w4 py-w4 rounded-button space-y-1.5",
+      "[&_code]:bg-black-a1 [&_ul]:text-[0.925em]"
     )}
   >
     {/* <CalloutIcon className="size-[1.25em]" /> */}

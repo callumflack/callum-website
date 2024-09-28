@@ -35,7 +35,7 @@ export const PostLine = ({
         {isFeatured ? (
           <div className="absolute top-[0.55em] left-[-0.7em] flex items-center justify-center sm:left-[-1em]">
             {/* animate-pulse2 h-[0.35em] w-[0.35em] */}
-            <div className="size-[0.25em] rounded-full bg-design opacity-50 group-hover:bg-accent group-hover:opacity-100" />
+            <div className="size-[0.25em] rounded-full bg-accent2 opacity-50 group-hover:bg-accent group-hover:opacity-100" />
           </div>
         ) : null}
 

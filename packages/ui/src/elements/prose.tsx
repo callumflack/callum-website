@@ -14,7 +14,7 @@ export const proseVariants = cva({
     "[&_strong]:font-medium",
     "[&_em]:not-italic",
     // specifically highlight within a paragraph
-    // "[&_p>span]:bg-highlight-background",
+    // "[&_p>span]:bg-accent3-background",
     "[&_p>span]:text-fil [&_p>span]:font-medium",
     // Code styles that can't be set in mdx-components due highlight() function
     // or when <code> is used without being wrapped by <pre>
