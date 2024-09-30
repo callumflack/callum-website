@@ -20,26 +20,29 @@ export const LinkWithArrow = ({
   return (
     <Link
       className={cx(
-        isExternal
-          ? "pr-[0.35em] relative"
-          : "inline-flex items-center gap-[2px]",
+        "inline-flex",
+        isExternal ? "" : "items-center gap-[2px]",
         className
       )}
       href={href}
     >
-      {children}
-      {isExternal ? (
-        <ChevronRightIcon
-          className={cx(
-            "absolute right-[-0.2em] top-[0.15em] size-[0.7em]",
-            "transform -rotate-45",
-            "!no-underline",
-            iconClassName
-          )}
-        />
-      ) : (
-        <ArrowRightIcon className="translate-y-[0.05em] transform" />
-      )}
+      <span className="flex-grow">{children}</span>
+      <span className={cx(isExternal && "relative flex w-[0.35em]")}>
+        {isExternal ? (
+          <ChevronRightIcon
+            className={cx(
+              "absolute right-[-0.2em] top-[0.05em] size-[0.7em]",
+              "size-[0.7em] transform -rotate-45",
+              "!no-underline",
+              iconClassName
+            )}
+          />
+        ) : (
+          <ArrowRightIcon
+            className={cx("translate-y-[0.05em] transform", iconClassName)}
+          />
+        )}
+      </span>
     </Link>
   );
 };
