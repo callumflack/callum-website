@@ -2,11 +2,8 @@ import { Link, Text, textVariants } from "@repo/ui/atoms";
 import { LinkWithArrow, OutsetRule, TitleHeader } from "@repo/ui/elements";
 import { cx } from "cva";
 import type { CustomPost } from "@/app/(home)";
-import { HomeSnapCarousel, extraCard } from "@/app/(home)";
-import {
-  writingHeading,
-  WritingSubheading,
-} from "@/app/writing/(components)/writing-components";
+import { extraCard, HomeSnapCarousel } from "@/app/(home)";
+import { WritingSubheading } from "@/app/writing/(components)/writing-components";
 import { Available, Avatar, ContactIcons } from "@/components/elements";
 import { Mdx } from "@/components/mdx";
 import { PageWrapper } from "@/components/page";
@@ -14,6 +11,9 @@ import { PostBlock } from "@/components/post/post-block";
 import { featuredWorkSlugs, featuredWritingSlugs } from "@/data";
 import { sortByCustomSlugOrder } from "@/utils";
 import { allPosts, type Post } from "contentlayer/generated";
+import { getProjects } from "./graphics/(components)/actions";
+import { GraphicsGrid } from "./graphics/(components)/graphics-grid";
+import { graphicsDescription } from "./graphics/(components)/copy";
 
 const work = featuredWorkSlugs.map((slug) =>
   allPosts.find((post) => post.slug === slug)
@@ -38,7 +38,10 @@ const copyPosts = allPosts.filter(
   (p) => p.category === "home" && p.title.includes("intro")
 );
 
-export default function HomePage(): JSX.Element {
+export default async function HomePage(): Promise<JSX.Element> {
+  const projects = await getProjects();
+  const displayedProjects = projects.slice(0, 9);
+
   return (
     <PageWrapper>
       {/* make this div fill the screen on mobile */}
@@ -65,6 +68,45 @@ export default function HomePage(): JSX.Element {
           <HomeSnapCarousel posts={allWorkPosts} />
         </main>
 
+        {/* GRAPHICS */}
+        <OutsetRule wrapperClassName="relative z-20" />
+        <section className="pt-submajor pb-major">
+          <div className="container">
+            <TitleHeader as="div" className="pb-minor" isContainedChild>
+              <Text
+                as="h2"
+                className="flex justify-between items-end"
+                intent="title"
+              >
+                Graphics & interactions
+                <LinkWithArrow
+                  className={cx(
+                    textVariants({
+                      intent: "meta",
+                      dim: true,
+                      link: "accent",
+                      weight: "normal",
+                    })
+                  )}
+                  href="/work"
+                >
+                  View Gx
+                </LinkWithArrow>
+              </Text>
+              <Text dim>{graphicsDescription}</Text>
+            </TitleHeader>
+          </div>
+          <div className="container max-w-hero-px">
+            <div className="h-[60vh] overflow-hidden relative">
+              <div className="absolute inset-x-0 top-0">
+                <GraphicsGrid cols={3} projects={displayedProjects} />
+              </div>
+              <div className="absolute w-full bottom-0 h-[20%] bg-gradient-to-t from-background-active to-transparent pointer-events-none" />
+              <div className="absolute w-full bottom-0 h-[12%] bg-gradient-to-t from-background-active to-transparent pointer-events-none" />
+            </div>
+          </div>
+        </section>
+
         {/* WRITING */}
         <OutsetRule wrapperClassName="relative z-20" />
         <section className="container pt-submajor pb-major">
@@ -74,7 +116,7 @@ export default function HomePage(): JSX.Element {
               className="flex justify-between items-end"
               intent="title"
             >
-              {writingHeading}
+              {/* {writingHeading} */} Writing
               <LinkWithArrow
                 className={cx(
                   textVariants({
