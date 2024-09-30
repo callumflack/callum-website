@@ -3,7 +3,10 @@ import type { ComponentProps } from "react";
 import { Caption } from "./caption";
 
 const mediaFigureVariants = cva({
-  base: "MediaFigure relative overflow-hidden space-y-2",
+  base: [
+    "MediaFigure relative overflow-hidden space-y-2",
+    // "[&_img]:max-h-[70vh] [&_video]:max-h-[70vh]",
+  ],
   variants: {
     figureIntent: {
       inGrid: "",
@@ -14,7 +17,8 @@ const mediaFigureVariants = cva({
       outset: "-mx-inset md:mx-[-3vw]",
       superOutset: [
         "-mx-inset",
-        "lg:mx-[calc((theme(maxWidth.hero)-theme(maxWidth.text)-theme(spacing.inset))/2*-1)] ", // lg:w-hero
+        "lg:mx-[calc((theme(maxWidth.hero)-theme(maxWidth.text)-theme(spacing.inset))/2*-1)]",
+        // lg:w-hero
       ],
     },
     isPortrait: {
@@ -55,16 +59,21 @@ interface MediaFigureProps
     VariantProps<typeof mediaFigureVariants> {
   caption?: React.ReactNode;
   captionIntent?: VariantProps<typeof mediaFigureVariants>["figureIntent"];
+  captionRule?: boolean;
 }
 
 const MediaFigure = ({
   caption,
   captionIntent,
+  captionRule,
   children,
   ...props
 }: MediaFigureProps) => (
   <figure className={cx(mediaFigureVariants(props))}>
     {children}
+    {caption && captionRule ? (
+      <hr className="transform translate-y-[0.15em]" />
+    ) : null}
     {caption ? (
       <Caption
         className={cx(
