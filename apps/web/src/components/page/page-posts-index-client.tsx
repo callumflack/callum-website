@@ -1,17 +1,18 @@
 "use client";
 
-import { Fragment, useState, Suspense } from "react";
-import { useRouter } from "next/navigation";
+import { LinkWithArrow } from "@repo/ui/elements";
 import { cx } from "cva";
-import type { PostsKind } from "@/components/post";
+import { useRouter } from "next/navigation";
+import { Fragment, Suspense, useState } from "react";
 import {
-  PostsListBlock,
   PostsList,
+  PostsListBlock,
   hideFeaturedDotStyle,
   useSortedPosts,
 } from "@/components/post";
+import type { PostsKind } from "@/components/post";
 import { ListHeader } from "./list-header";
-import { StyledSortButton } from "./sort-button";
+import { StyledSortButton, sortButtonStyle } from "./sort-button";
 
 export const PagePostsIndexClient = ({
   kind,
@@ -89,6 +90,17 @@ export const PagePostsIndexClient = ({
         //     <div className={cx(sortButtonStyle, "pr-0")}>Start here</div>
         //   )
         // }
+        rhsElement={
+          kind === "projects" && (
+            <LinkWithArrow
+              className={cx(sortButtonStyle, "text-solid pr-0")}
+              href="/graphics"
+              iconClassName="!translate-y-[-0.2em]"
+            >
+              Gx
+            </LinkWithArrow>
+          )
+        }
       >
         {sortBy.map((sort) => (
           <Fragment key={sort}>

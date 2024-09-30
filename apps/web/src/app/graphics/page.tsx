@@ -1,10 +1,11 @@
-import { Text } from "@repo/ui/atoms";
+import { Link, Text } from "@repo/ui/atoms";
 import { TitleHeader } from "@repo/ui/elements";
 import { PageWrapper } from "@/components/page";
 // import type { PostsKind } from "@/components/post";
 // import type { SearchParams } from "@/types/search-params";
-import { getProjects } from "./actions";
-import { GraphicsGrid } from "./graphics-grid";
+import { getProjects } from "./(components)/actions";
+import { GraphicsGrid } from "./(components)/graphics-grid";
+import { graphicsDescription } from "./(components)/copy";
 
 /* 
   TODO:
@@ -21,16 +22,22 @@ export default async function GraphicsIndexPage() {
   // const currentSort = (searchParams.sort as string) || kind;
 
   return (
-    <PageWrapper>
+    <PageWrapper activeNav="/work">
       <TitleHeader>
         <Text as="h1" intent="title">
-          A history of graphics.
+          Graphics and interactions.
         </Text>
-        <Text dim>Quote about taste & fun goes here…</Text>
+        <Text dim>
+          {graphicsDescription} View case studies{" "}
+          <Link className="link" href="/work">
+            here
+          </Link>
+          .
+        </Text>
       </TitleHeader>
-      {/* <PagePostsIndexClient initialSort={currentSort} kind={kind} /> */}
+      {/* max-w-[1140px] */}
       <main className="container max-w-hero-px pt-tab pb-major">
-        <GraphicsGrid projects={projects} />
+        <GraphicsGrid cols={3} projects={projects} />
       </main>
     </PageWrapper>
   );
