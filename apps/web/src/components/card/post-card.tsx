@@ -41,7 +41,7 @@ export const PostCard = ({
           captionClassName
         )}
       >
-        <CardIcon post={post} />
+        <CardIcon category={post.category as "writing" | "projects"} />
         <span>{post.title}</span>
         {showRule ? (
           <hr

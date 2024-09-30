@@ -28,7 +28,7 @@ export const CardTitleMeta = ({
       dim
       intent="meta"
     >
-      <CardIcon post={post} />
+      <CardIcon category={post.category as "writing" | "projects"} />
       <span>
         <span>{getYear(post.date)}</span>
         {endYear ? (
@@ -44,12 +44,13 @@ export const CardTitleMeta = ({
   );
 };
 
-export const CardIcon = ({ post }: { post: Post }) => {
-  if (post.category === "writing") {
+export const CardIcon = ({
+  category,
+}: {
+  category: "writing" | "projects";
+}) => {
+  if (category === "writing") {
     return <QuoteIcon className={cx(iconStyle, transformStyle)} />;
   }
-  if (post.category === "projects") {
-    return <EyeOpenIcon className={cx(iconStyle, transformStyle)} />;
-  }
-  return null;
+  return <EyeOpenIcon className={cx(iconStyle, transformStyle)} />;
 };

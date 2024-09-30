@@ -12,6 +12,7 @@ import { OutsetRule } from "../elements/outset-rule";
 const linkStyle = [
   "h-tab flex items-center gap-0 relative hover:text-accent",
   "before:absolute before:left-[-2px] before:right-[-2px] before:bottom-[-1px] before:border-b",
+  // "hover:before:border-accent",
 ];
 
 interface NavProps {
