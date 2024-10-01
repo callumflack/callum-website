@@ -39,10 +39,10 @@ export const Nav = ({
   }, [y]);
 
   return (
+    // Want id="top"? Move it to a parent element without sticky positioning
     <div
       // bg-opacity-70 backdrop-blur-md
       className="Nav sticky top-0 z-50 bg-canvas"
-      id="top"
     >
       <nav
         className={cx(
