@@ -28,9 +28,9 @@ export default async function GraphicsIndexPage() {
           Graphics and interactions.
         </Text>
         <Text dim>
-          {graphicsDescription} View case studies{" "}
+          {graphicsDescription}{" "}
           <Link className="link" href="/work">
-            here
+            View case studies
           </Link>
           .
         </Text>
