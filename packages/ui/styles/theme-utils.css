@@ -66,12 +66,30 @@
         rgba(0, 0, 0, 0) 100%
       );
   }
-  .mask-right {
+  .mask-bottom-up {
+    mask-composite: exclude;
+    --background: #ffffff;
+    --fade-stop: 90%;
     mask-image: linear-gradient(
-      to right,
-      rgb(0, 0, 0) 82.5%,
-      rgba(0, 0, 0, 0) 100%
-    );
+        to top,
+        var(--background) var(--fade-stop),
+        transparent
+      ),
+      linear-gradient(to top, var(--background) var(--fade-stop), transparent),
+      linear-gradient(black, black);
+    /* mask-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 0, 0) 17.5%,
+        rgb(0, 0, 0) 82.5%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      linear-gradient(
+        to top,
+        transparent 0%,
+        rgba(0, 0, 0, 0.8) 20%,
+        rgb(0, 0, 0) 32%
+      ); */
   }
 }
 
