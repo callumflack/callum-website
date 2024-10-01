@@ -16,7 +16,7 @@ const mediaFigureVariants = cva({
       mobileInset: "mx-auto max-w-[280px]",
       outset: "-mx-inset md:mx-[-3vw]",
       superOutset: [
-        "-mx-inset",
+        // "-mx-inset",
         "lg:mx-[calc((theme(maxWidth.hero)-theme(maxWidth.text)-theme(spacing.inset))/2*-1)]",
         // lg:w-hero
       ],
@@ -45,7 +45,7 @@ const mediaFigureVariants = cva({
     {
       isPortrait: true,
       figureIntent: "superOutset",
-      className: "[&_img]:max-w-fit [&_video]:max-w-fit",
+      className: "[&_img]:sm:max-w-fit [&_video]:sm:max-w-fit",
     },
     {
       isPortrait: false,
@@ -59,21 +59,16 @@ interface MediaFigureProps
     VariantProps<typeof mediaFigureVariants> {
   caption?: React.ReactNode;
   captionIntent?: VariantProps<typeof mediaFigureVariants>["figureIntent"];
-  captionRule?: boolean;
 }
 
 const MediaFigure = ({
   caption,
   captionIntent,
-  captionRule,
   children,
   ...props
 }: MediaFigureProps) => (
   <figure className={cx(mediaFigureVariants(props))}>
     {children}
-    {caption && captionRule ? (
-      <hr className="transform translate-y-[0.15em]" />
-    ) : null}
     {caption ? (
       <Caption
         className={cx(

@@ -22,7 +22,7 @@ function getImageSize(imagePath: string) {
 
 const projectsData = [
   {
-    title: "Sagatiba print campaign for Saatchi & Saatchi, London",
+    title: "Sagatiba illustration for Saatchi & Saatchi, London",
     date: "2006-01-01",
     image: "/images/saatchi-sagatiba-1200.png",
   },

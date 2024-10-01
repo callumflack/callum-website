@@ -4,47 +4,50 @@ import { Text } from "@repo/ui/atoms";
 import { LinkWithArrow } from "@repo/ui/elements";
 import { getYear } from "@repo/ui/utils";
 import { cx } from "cva";
-import { useEffect, useMemo, useState, memo } from "react";
+import { memo } from "react";
 import { CardIcon } from "~/src/components/card/card-title-meta";
 import { MediaDialog } from "./media-dialog";
 import type { Project } from "./projects";
 
 export const GraphicsGrid = memo(
   ({ projects, cols }: { projects: Project[]; cols: number }) => {
-    const isMobile = useMediaQuery("(max-width: 640px)");
+    // Pre-pack images for mobile and desktop
+    const columnsMobile = pack(projects, 2);
+    const columnsDesktop = pack(projects, 3);
 
-    const columns = useMemo(
-      () => pack(projects, isMobile ? 2 : cols),
-      [cols, projects, isMobile]
-    );
+    const renderColumns = (columns: Project[][], basisClass: string) =>
+      columns.map((column, columnIndex) => (
+        <div
+          className={cx(`flex flex-col gap-w4`, basisClass)}
+          key={`column-${column[0].image}`}
+        >
+          {column.map((project) => (
+            <MediaDialog
+              alt={project.title}
+              aspect={`${project.width}-${project.height}`}
+              buttonFigureIntent="inGrid"
+              caption={<Caption project={project} />}
+              key={project.image}
+              priority={columnIndex < 3}
+              showCaptionInButton={false}
+              src={project.image}
+              title={project.title}
+            />
+          ))}
+        </div>
+      ));
 
     return (
-      <div className="flex flex-col sm:flex-row gap-w4">
-        {columns.map((column, columnIndex) => (
-          <div
-            className={cx(
-              "flex flex-col gap-w4 basis-1/2",
-              renderColStyle(cols)
-            )}
-            // eslint-disable-next-line react/no-array-index-key -- hey
-            key={`column-${columnIndex}`}
-          >
-            {column.map((project) => (
-              <MediaDialog
-                alt={project.title}
-                aspect={`${project.width}-${project.height}`}
-                buttonFigureIntent="inGrid"
-                caption={<Caption project={project} />}
-                key={project.image}
-                priority={columnIndex < 3}
-                showCaptionInButton={false}
-                src={project.image}
-                title={project.title}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
+      <>
+        {/* Mobile layout: 2 columns */}
+        <div className="flex flex-row gap-w4 sm:hidden">
+          {renderColumns(columnsMobile, "basis-1/2")}
+        </div>
+        {/* Desktop layout: cols prop */}
+        <div className="hidden sm:flex flex-row gap-w4">
+          {renderColumns(columnsDesktop, renderColStyle(cols))}
+        </div>
+      </>
     );
   }
 );
@@ -79,7 +82,7 @@ const renderColStyle = (col: number) => {
 };
 
 const Caption = ({ project }: { project: Project }) => (
-  <div className="flex justify-between">
+  <div className="flex flex-col space-y-1 sm:flex-row justify-between">
     <div className="flex items-center gap-2">
       <Text
         as="h2"
@@ -99,35 +102,25 @@ const Caption = ({ project }: { project: Project }) => (
         dim
         intent="meta"
       >
-        <CardIcon category="projects" />
-        <span>{getYear(project.date)}</span>
+        <CardIcon category="projects" className="hidden sm:block" />
+        <span className="hidden sm:block">{getYear(project.date)}</span>
       </Text>
     </div>
 
-    {project.caseStudyLink ? (
-      <LinkWithArrow
-        className="group block link-alt"
-        href={project.caseStudyLink}
-      >
-        Case study
-      </LinkWithArrow>
-    ) : null}
+    <div className="flex shrink-0 items-center gap-2">
+      <CardIcon category="projects" className="sm:hidden" />
+      <span className="sm:hidden">{getYear(project.date)}</span>
+      {project.caseStudyLink ? (
+        <>
+          <hr className="sm:hidden hr-vertical border-border-hover h-[0.7em] transform translate-y-[0.15em]" />
+          <LinkWithArrow
+            className="group block link-alt"
+            href={project.caseStudyLink}
+          >
+            Case study
+          </LinkWithArrow>
+        </>
+      ) : null}
+    </div>
   </div>
 );
-
-// const MemoizedCaption = memo(Caption);
-
-export function useMediaQuery(query: string): boolean {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    setMatches(media.matches);
-
-    const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
-    media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
-  }, [query]);
-
-  return matches;
-}

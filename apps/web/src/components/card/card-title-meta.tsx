@@ -46,11 +46,13 @@ export const CardTitleMeta = ({
 
 export const CardIcon = ({
   category,
+  className,
 }: {
   category: "writing" | "projects";
+  className?: string;
 }) => {
   if (category === "writing") {
-    return <QuoteIcon className={cx(iconStyle, transformStyle)} />;
+    return <QuoteIcon className={cx(iconStyle, transformStyle, className)} />;
   }
-  return <EyeOpenIcon className={cx(iconStyle, transformStyle)} />;
+  return <EyeOpenIcon className={cx(iconStyle, transformStyle, className)} />;
 };

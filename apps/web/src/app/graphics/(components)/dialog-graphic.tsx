@@ -26,7 +26,7 @@ export const DialogGraphic = ({
 }: DialogBasicProps) => {
   return (
     <Dialog>
-      <DialogTrigger className="w-full focus-visible:outline-none">
+      <DialogTrigger className="flex w-full focus-visible:outline-none">
         {buttonNode}
       </DialogTrigger>
       <DialogContent

@@ -45,7 +45,7 @@ export const MediaDialog = ({
           caption={showCaptionInButton ? caption : null}
           className="!py-0 focus-visible:outline-none"
           figureIntent={buttonFigureIntent}
-          isPortrait={height > width}
+          // isPortrait={height >= width}
         >
           <Image
             alt={alt}
@@ -59,7 +59,7 @@ export const MediaDialog = ({
             )}
             height={height}
             priority={priority}
-            sizes="(min-width: 768px) 400px, 100vw"
+            sizes="(min-width: 768px) 350px, 100vw"
             src={src}
             style={{
               aspectRatio: `${width}/${height}`,
@@ -68,16 +68,21 @@ export const MediaDialog = ({
           />
         </MediaFigure>
       }
+      contentClassName="flex"
       title={title}
     >
       <MediaFigure
-        caption={caption}
-        captionRule
+        caption={
+          <div className="">
+            <hr className="hidden sm:block transform translate-y-[0.15em]" />
+            <div className="sm:pt-3">{caption}</div>
+          </div>
+        }
         className="space-y-3"
         figureIntent="superOutset"
         isPortrait={height >= width}
       >
-        <DialogClose className="w-full cursor-zoom-out">
+        <DialogClose className="flex w-full cursor-zoom-out">
           <Image
             alt={alt}
             className={cx(
@@ -88,6 +93,7 @@ export const MediaDialog = ({
               })
             )}
             height={height}
+            sizes="(min-width: 1024px) 940px, (min-width: 700px) 660px, 100vw"
             src={src}
             style={{
               aspectRatio: `${width}/${height}`,
