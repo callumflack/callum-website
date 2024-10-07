@@ -1,5 +1,6 @@
 import { Text } from "@repo/ui/atoms";
 import { TitleHeader } from "@repo/ui/elements";
+import type { Metadata } from "next";
 import { PageWrapper } from "@/components/page";
 import { PagePostsIndexClient } from "@/components/page/page-posts-index-client";
 import type { PostsKind } from "@/components/post";
@@ -8,6 +9,12 @@ import {
   writingHeading,
   WritingSubheading,
 } from "./(components)/writing-components";
+
+export const metadata: Metadata = {
+  title: "Writing",
+  description:
+    "Writing about creativity, design and complexity through the lens of attention, interfaces and systems composition.",
+};
 
 export default function WritingIndexPage({
   searchParams,

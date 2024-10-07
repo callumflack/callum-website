@@ -1,8 +1,14 @@
 import { Text } from "@repo/ui/atoms";
 import { TitleHeader } from "@repo/ui/elements";
+import type { Metadata } from "next";
 import type { SearchParams } from "@/types/search-params";
 import { PageWrapper, PagePostsIndexClient } from "@/components/page";
 import type { PostsKind } from "@/components/post";
+
+export const metadata: Metadata = {
+  title: "Work",
+  description: "An archive of design and code projects produced since 1998.",
+};
 
 export default function WorkIndexPage({
   searchParams,

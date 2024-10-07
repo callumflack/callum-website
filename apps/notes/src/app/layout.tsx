@@ -5,24 +5,16 @@ import { mono, sans } from "@repo/ui/fonts";
 import config from "@repo/ui/config";
 import { Providers } from "./providers";
 
-const title = "Callum Flack is a designer who codes and writes";
-const description =
-  "Callum Flack is a designer who codes. Fluid across visual design, user experience and frontend engineering, he also writes about creativity, teamwork and attention.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(config.PUBLIC_URL),
-  title,
-  description,
-  twitter: {
-    card: "summary",
-    creator: "@callumflack",
-    title,
-    description,
-    images: {
-      url: "/images/twitter-card.png", // Must be an absolute URL
-      alt: "Callum Flack's initial (C) on his favourite colour.",
-    },
+  alternates: {
+    canonical: "/",
   },
+  title: {
+    default: "Callum's Notes",
+    template: "%s — Callum's Notes",
+  },
+  description: "Wunderkammer curios by a designer who codes.",
 };
 
 export const viewport: Viewport = {

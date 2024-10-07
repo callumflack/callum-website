@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import { Mdx } from "@/components/mdx";
 import { Avatar } from "~/src/components/elements/avatar";
 import { PageWrapper } from "@/components/page";
 import { allPosts } from "contentlayer/generated";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const file = allPosts.filter(
   (p) => p.category === "home" && p.title.includes("gist")

@@ -34,10 +34,10 @@ export function generateMetadata({ params }: { params: Params }) {
     return;
   }
 
-  const { title: postTitle, date: publishedTime, description } = post;
-  const title = `${postTitle} —— Callum Flack Notes`;
-
-  const ogImage = `${config.PUBLIC_NOTES_URL}/og?title=${encodeURIComponent(title)}&description=${encodeURIComponent(description)}`;
+  const { title, date: publishedTime, description, assets } = post;
+  const image = assets?.[0]?.src
+    ? `${config.PUBLIC_URL}${assets[0].src}`
+    : `${config.PUBLIC_URL}/opengraph-image.png`;
 
   return {
     title,
@@ -50,15 +50,9 @@ export function generateMetadata({ params }: { params: Params }) {
       url: `${config.PUBLIC_NOTES_URL}/${post.slug}`,
       images: [
         {
-          url: ogImage,
+          url: image,
         },
       ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
     },
   };
 }
