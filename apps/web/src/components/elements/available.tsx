@@ -1,7 +1,7 @@
 import { Text } from "@repo/ui/atoms";
 
 export const Available = () => (
-  <div className="pt-1">
+  <div className="pt-2">
     <div className="inline-flex rounded-button border border-accent2 bg-canvas px-3 pr-4 py-2 text-accent2">
       <div className="flex items-center gap-2">
         {/* animate-pulse2 h-[0.35em] w-[0.35em] */}

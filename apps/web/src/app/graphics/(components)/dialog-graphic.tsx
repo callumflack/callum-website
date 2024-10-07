@@ -32,7 +32,7 @@ export const DialogGraphic = ({
       <DialogContent
         aria-describedby={title}
         className={cx("container", contentClassName)}
-        // // Prevent focus from returning to the trigger: fixes layout issue with Graphics-Grid
+        // Prevent focus from returning to the trigger: fixes layout issue with Graphics-Grid
         onCloseAutoFocus={(event) => {
           event.preventDefault();
         }}
