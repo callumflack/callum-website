@@ -10,7 +10,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean": "turbo run clean && rm -rf node_modules",
     "clean:all": "turbo run clean && rm -rf node_modules **/node_modules && rm pnpm-lock.yaml",
-    "release": "turbo run build --filter=notes^..."
+    "release": "turbo run build --filter=notes^...",
+    "delete-posts": "rm -rf apps/web/posts apps/notes/posts"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
