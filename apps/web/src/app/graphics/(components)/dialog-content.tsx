@@ -4,6 +4,8 @@ import {
   Dialog,
   DialogContent as RadixDialogContent,
   DialogClose,
+  DialogTitle,
+  DialogDescription,
 } from "@repo/ui/composites";
 import { MediaFigure, mediaWrapperVariants } from "@repo/ui/media";
 import { cx } from "cva";
@@ -39,6 +41,9 @@ export const DialogContent = ({ project }: DialogContentProps) => {
         }}
         overlayClassName="bg-background-active cursor-zoom-out"
       >
+        <DialogTitle className="sr-only">{title}</DialogTitle>
+        <DialogDescription className="sr-only">{title}</DialogDescription>
+
         <MediaFigure
           caption={
             <div>

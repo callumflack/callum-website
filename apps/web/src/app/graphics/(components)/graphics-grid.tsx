@@ -26,6 +26,7 @@ export const GraphicsGrid = memo(
               className="w-full focus-visible:outline-none !py-0"
               href={`/graphics/${slugify(project.title)}`}
               key={project.image}
+              scroll={false}
             >
               <MediaFigure
                 className="!py-0 focus-visible:outline-none"
