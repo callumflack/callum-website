@@ -14,9 +14,7 @@ export const metadata: Metadata = {
 };
 
 /* 
-  TODO:
-  * add searchParam filters
-  * add metaData
+  TODO: add searchParam filters?
  */
 
 export default async function GraphicsIndexPage() {
@@ -41,7 +39,6 @@ export default async function GraphicsIndexPage() {
           .
         </Text>
       </TitleHeader>
-      {/* max-w-[1140px] */}
       <main className="container max-w-hero-px pt-tab pb-major">
         <GraphicsGrid cols={3} projects={projects} />
       </main>
