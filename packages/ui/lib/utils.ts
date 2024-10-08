@@ -16,3 +16,19 @@ export const splitAspect = (
   const [width, height] = aspect.split("-").map(Number);
   return { width, height };
 };
+
+export function slugify(title: string): string {
+  return (
+    title
+      .toLowerCase()
+      .trim()
+      // Replace & with 'and'
+      .replace(/&/g, "and")
+      // Replace spaces and commas with hyphens
+      .replace(/[\s,]+/g, "-")
+      // Remove all non-word characters except hyphens
+      .replace(/[^\w-]+/g, "")
+      // Replace multiple hyphens with a single hyphen
+      .replace(/--+/g, "-")
+  );
+}

@@ -43,7 +43,7 @@ const projectsData = [
     caseStudyLink: "/breaka",
   },
   {
-    title: "Unused website design & illustrations for Jazz Tools",
+    title: "Website design & illustrations for Jazz Tools (unused)",
     date: "2024-09-01",
     image: "/images/jazz-home-hero-01-02.png",
   },
