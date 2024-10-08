@@ -1,27 +1,28 @@
 "use client";
 
+import { Text } from "@repo/ui/atoms";
 import {
   Dialog,
-  DialogContent as RadixDialogContent,
   DialogClose,
-  DialogTitle,
   DialogDescription,
+  DialogTitle,
+  DialogContent as RadixDialogContent,
 } from "@repo/ui/composites";
+import { LinkWithArrow } from "@repo/ui/elements";
 import { MediaFigure, mediaWrapperVariants } from "@repo/ui/media";
+import { getYear } from "@repo/ui/utils";
 import { cx } from "cva";
 import Image from "next/image";
-import { Text } from "@repo/ui/atoms";
-import { LinkWithArrow } from "@repo/ui/elements";
-import { getYear } from "@repo/ui/utils";
 import { useRouter } from "next/navigation";
 import { CardIcon } from "~/src/components/card/card-title-meta";
 import type { Project } from "./projects";
 
 export interface DialogContentProps {
   project: Project;
+  isModal: boolean;
 }
 
-export const DialogContent = ({ project }: DialogContentProps) => {
+export const DialogContent = ({ project, isModal }: DialogContentProps) => {
   const router = useRouter();
 
   const handleClose = () => {
@@ -29,6 +30,47 @@ export const DialogContent = ({ project }: DialogContentProps) => {
   };
 
   const { width, height, image, title } = project;
+
+  const content = (
+    <MediaFigure
+      caption={
+        <div>
+          <hr className="hidden sm:block transform translate-y-[0.15em]" />
+          <div className="sm:pt-3">
+            <Caption project={project} />
+          </div>
+        </div>
+      }
+      className="space-y-3"
+      figureIntent="superOutset"
+      isPortrait={height >= width}
+      style={{
+        aspectRatio: `${width}/${height}`,
+      }}
+    >
+      <Image
+        alt={title}
+        className={cx(
+          mediaWrapperVariants({
+            border: false,
+            background: false,
+            rounded: false,
+          })
+        )}
+        height={height}
+        sizes="(min-width: 1024px) 940px, (min-width: 700px) 660px, 100vw"
+        src={image}
+        style={{
+          aspectRatio: `${width}/${height}`,
+        }}
+        width={width}
+      />
+    </MediaFigure>
+  );
+
+  if (!isModal) {
+    return content;
+  }
 
   return (
     <Dialog onOpenChange={(open) => !open && handleClose()} open>
@@ -43,43 +85,9 @@ export const DialogContent = ({ project }: DialogContentProps) => {
       >
         <DialogTitle className="sr-only">{title}</DialogTitle>
         <DialogDescription className="sr-only">{title}</DialogDescription>
-
-        <MediaFigure
-          caption={
-            <div>
-              <hr className="hidden sm:block transform translate-y-[0.15em]" />
-              <div className="sm:pt-3">
-                <Caption project={project} />
-              </div>
-            </div>
-          }
-          className="space-y-3"
-          figureIntent="superOutset"
-          isPortrait={height >= width}
-          style={{
-            aspectRatio: `${width}/${height}`,
-          }}
-        >
-          <DialogClose className="flex w-full cursor-zoom-out">
-            <Image
-              alt={title}
-              className={cx(
-                mediaWrapperVariants({
-                  border: false,
-                  background: false,
-                  rounded: false,
-                })
-              )}
-              height={height}
-              sizes="(min-width: 1024px) 940px, (min-width: 700px) 660px, 100vw"
-              src={image}
-              style={{
-                aspectRatio: `${width}/${height}`,
-              }}
-              width={width}
-            />
-          </DialogClose>
-        </MediaFigure>
+        <DialogClose className="flex w-full cursor-zoom-out">
+          {content}
+        </DialogClose>
       </RadixDialogContent>
     </Dialog>
   );

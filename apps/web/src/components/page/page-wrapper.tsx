@@ -33,6 +33,7 @@ export const PageWrapper = ({
           { href: "/about", label: "About" },
           { href: "/work", label: "Work" },
           { href: "/writing", label: "Writing" },
+          { href: "/graphics", label: "GxIx" },
           { href: config.PUBLIC_NOTES_URL, label: "Notes" },
         ]}
         ruleClassName={cx(

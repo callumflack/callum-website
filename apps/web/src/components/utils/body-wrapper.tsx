@@ -13,7 +13,11 @@ export function BodyWrapper({
   const pathname = usePathname();
   return (
     <body
-      className={cx(pathname === "/" ? "bg-background-body" : "", className)}
+      className={cx(
+        pathname === "/" ? "bg-background-body" : "",
+        pathname.startsWith("/graphics/") ? "bg-background-active" : "",
+        className
+      )}
     >
       {children}
     </body>

@@ -8,7 +8,6 @@ import { memo } from "react";
 import { slugify } from "@repo/ui/utils";
 import type { Project } from "./projects";
 
-// Add a slugify function
 export const GraphicsGrid = memo(
   ({ projects, cols }: { projects: Project[]; cols: number }) => {
     // Pre-pack images for mobile and desktop
@@ -26,6 +25,7 @@ export const GraphicsGrid = memo(
               className="w-full focus-visible:outline-none !py-0"
               href={`/graphics/${slugify(project.title)}`}
               key={project.image}
+              // prefetch={false}
               scroll={false}
             >
               <MediaFigure

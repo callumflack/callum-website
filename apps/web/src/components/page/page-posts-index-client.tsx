@@ -97,7 +97,7 @@ export const PagePostsIndexClient = ({
               href="/graphics"
               iconClassName="!translate-y-[-0.2em]"
             >
-              Gx
+              GxIx
             </LinkWithArrow>
           )
         }

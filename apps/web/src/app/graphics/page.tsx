@@ -26,7 +26,7 @@ export default async function GraphicsIndexPage() {
   // const currentSort = (searchParams.sort as string) || kind;
 
   return (
-    <PageWrapper activeNav="/work">
+    <PageWrapper activeNav="/graphics">
       <TitleHeader>
         <Text as="h1" intent="title">
           Graphics and interactions.
