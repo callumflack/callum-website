@@ -11,9 +11,9 @@ import { PostBlock } from "@/components/post/post-block";
 import { featuredWorkSlugs, featuredWritingSlugs } from "@/data";
 import { sortByCustomSlugOrder } from "@/utils";
 import { allPosts, type Post } from "contentlayer/generated";
-import { getProjects } from "./graphics/(components)/actions";
-import { GraphicsGrid } from "./graphics/(components)/graphics-grid";
-import { graphicsDescription } from "./graphics/(components)/copy";
+// import { getProjects } from "./graphics/(components)/actions";
+// import { GraphicsGrid } from "./graphics/(components)/graphics-grid";
+// import { graphicsDescription } from "./graphics/(components)/copy";
 
 const work = featuredWorkSlugs.map((slug) =>
   allPosts.find((post) => post.slug === slug)
@@ -38,9 +38,9 @@ const copyPosts = allPosts.filter(
   (p) => p.category === "home" && p.title.includes("intro")
 );
 
-export default async function HomePage(): Promise<JSX.Element> {
-  const projects = await getProjects();
-  const displayedProjects = projects.slice(0, 9);
+export default function HomePage(): JSX.Element {
+  // const projects = await getProjects();
+  // const displayedProjects = projects.slice(0, 9);
 
   return (
     <PageWrapper>
@@ -69,7 +69,7 @@ export default async function HomePage(): Promise<JSX.Element> {
         </main>
 
         {/* GRAPHICS */}
-        <OutsetRule wrapperClassName="relative z-20" />
+        {/* <OutsetRule wrapperClassName="relative z-20" />
         <section className="pt-submajor pb-major">
           <div className="container">
             <TitleHeader as="div" className="pb-minor" isContainedChild>
@@ -105,7 +105,7 @@ export default async function HomePage(): Promise<JSX.Element> {
               <div className="absolute w-full bottom-0 h-[12%] bg-gradient-to-t from-background-active to-transparent pointer-events-none" />
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* WRITING */}
         <OutsetRule wrapperClassName="relative z-20" />
