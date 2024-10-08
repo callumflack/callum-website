@@ -1,11 +1,17 @@
 import { Link, Text } from "@repo/ui/atoms";
+import type { Metadata } from "next";
 import { TitleHeader } from "@repo/ui/elements";
 import { PageWrapper } from "@/components/page";
-// import type { PostsKind } from "@/components/post";
-// import type { SearchParams } from "@/types/search-params";
 import { getProjects } from "./(components)/actions";
 import { GraphicsGrid } from "./(components)/graphics-grid";
 import { graphicsDescription } from "./(components)/copy";
+// import type { PostsKind } from "@/components/post";
+// import type { SearchParams } from "@/types/search-params";
+
+export const metadata: Metadata = {
+  title: "Graphics and interactions",
+  description: graphicsDescription,
+};
 
 /* 
   TODO:
