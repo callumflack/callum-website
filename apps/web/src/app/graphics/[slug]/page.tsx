@@ -1,12 +1,10 @@
-import { Link, Text } from "@repo/ui/atoms";
-import { LinkWithArrow, TitleHeader } from "@repo/ui/elements";
+import { Link } from "@repo/ui/atoms";
+import { cx } from "cva";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cx } from "cva";
-import { getProjectBySlug } from "@/app/graphics/(components)/actions";
-import { graphicsDescription } from "@/app/graphics/(components)/copy";
 import { DialogContent } from "@/app/graphics/(components)/dialog-content";
-import { PageWrapper } from "@/components/page";
+import { graphicsDescription } from "@/app/graphics/(components)/copy";
+import { getProjectBySlug } from "@/app/graphics/(components)/actions";
 
 export const metadata: Metadata = {
   title: "Graphics and interactions",
