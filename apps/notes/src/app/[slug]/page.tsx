@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import config from "@repo/ui/config";
+import { isVideoFile } from "@repo/ui/utils";
 import { allPosts } from "contentlayer/generated";
 import { PagePost } from "@/components/page-post";
 import { PageWrapper } from "~/src/components/page-wrapper";
@@ -35,9 +36,18 @@ export function generateMetadata({ params }: { params: Params }) {
   }
 
   const { title, date: publishedTime, description, assets } = post;
-  const image = assets?.[0]?.src
-    ? `${config.PUBLIC_URL}${assets[0].src}`
-    : `${config.PUBLIC_URL}/opengraph-image.png`;
+  const asset = assets?.[0];
+  let image;
+
+  if (asset?.src) {
+    if (isVideoFile(asset.src) && asset.poster) {
+      image = `${config.PUBLIC_URL}${asset.poster}`;
+    } else {
+      image = `${config.PUBLIC_URL}${asset.src}`;
+    }
+  } else {
+    image = `${config.PUBLIC_URL}/opengraph-image.png`;
+  }
 
   return {
     title,
