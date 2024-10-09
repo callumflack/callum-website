@@ -6,7 +6,7 @@ import config from "@repo/ui/config";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(config.PUBLIC_URL),
+  metadataBase: new URL(config.PUBLIC_NOTES_URL),
   alternates: {
     canonical: "/",
   },
