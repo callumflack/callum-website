@@ -53,4 +53,4 @@ If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer`
 2. Please do not copy it directly.
 3. Crediting the author is appreciated.
 
-Please remove my posts by running `pnpm run delete-posts`.
+Please remove my posts by running `pnpm run delete-posts` and update the URLs in `packages/ui/lib/config.ts` to point to your own.
