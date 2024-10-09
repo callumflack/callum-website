@@ -1,15 +1,12 @@
 import { Link } from "@repo/ui/atoms";
+import config from "@repo/ui/config";
+import { slugify } from "@repo/ui/utils";
 import { cx } from "cva";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import projects from "@/app/graphics/(components)/projects";
 import { DialogContent } from "@/app/graphics/(components)/dialog-content";
 import { graphicsDescription } from "@/app/graphics/(components)/copy";
 import { getProjectBySlug } from "@/app/graphics/(components)/actions";
-
-export const metadata: Metadata = {
-  title: "Graphics and interactions",
-  description: graphicsDescription,
-};
 
 export default async function InterceptedProjectPage({
   params,
@@ -23,7 +20,6 @@ export default async function InterceptedProjectPage({
   }
 
   return (
-    // <PageWrapper activeNav="/graphics">
     <Link className="absolute inset-0 cursor-zoom-out" href="/graphics">
       <main
         className={cx(
@@ -36,4 +32,37 @@ export default async function InterceptedProjectPage({
       </main>
     </Link>
   );
+}
+
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: slugify(project.title),
+  }));
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }) {
+  const project = projects.find((p) => slugify(p.title) === params.slug);
+  if (!project) {
+    return;
+  }
+
+  const { title, date: publishedTime, image } = project;
+  const imageUrl = `${config.PUBLIC_URL}${image}`;
+
+  return {
+    title,
+    description: graphicsDescription,
+    openGraph: {
+      title,
+      description: graphicsDescription,
+      type: "image",
+      publishedTime,
+      url: `${config.PUBLIC_URL}/graphics/${params.slug}`,
+      images: [
+        {
+          url: imageUrl,
+        },
+      ],
+    },
+  };
 }
