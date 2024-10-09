@@ -41,12 +41,12 @@ export function generateMetadata({ params }: { params: Params }) {
 
   if (asset?.src) {
     if (isVideoFile(asset.src) && asset.poster) {
-      image = `${config.PUBLIC_URL}${asset.poster}`;
+      image = `${config.PUBLIC_NOTES_URL}${asset.poster}`;
     } else {
-      image = `${config.PUBLIC_URL}${asset.src}`;
+      image = `${config.PUBLIC_NOTES_URL}${asset.src}`;
     }
   } else {
-    image = `${config.PUBLIC_URL}/opengraph-image.png`;
+    image = `${config.PUBLIC_NOTES_URL}/opengraph-image.png`;
   }
 
   return {
