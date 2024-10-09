@@ -48,7 +48,7 @@ export function generateMetadata({ params }: { params: Params }) {
     title,
     description,
     openGraph: {
-      title,
+      title: `${title} — Callum Flack`,
       description,
       type: "article",
       publishedTime,

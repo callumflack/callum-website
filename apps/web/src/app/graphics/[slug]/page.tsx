@@ -53,9 +53,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
     title,
     description: graphicsDescription,
     openGraph: {
-      title,
+      title: `${title} — Callum Flack`,
       description: graphicsDescription,
-      type: "image",
+      type: "article",
       publishedTime,
       url: `${config.PUBLIC_URL}/graphics/${params.slug}`,
       images: [
