@@ -40,7 +40,7 @@ export const MediaDialogImage = ({
       buttonNode={
         <MediaFigure
           caption={showCaptionInButton ? caption : null}
-          className="!py-0"
+          // className="!py-0"
           figureIntent={buttonFigureIntent}
           isPortrait={height > width}
         >

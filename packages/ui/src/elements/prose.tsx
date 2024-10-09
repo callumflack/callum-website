@@ -13,6 +13,9 @@ export const proseVariants = cva({
     "Prose space-y-2.5 group",
     "[&_strong]:font-medium",
     "[&_em]:not-italic",
+    // button > media overrides
+    "[&_button:first-child>.MediaFigure]:pt-0",
+    "[&_button+button]:!mt-0",
     // specifically highlight within a paragraph
     // "[&_p>span]:bg-accent3-background",
     "[&_p>span]:text-fil [&_p>span]:font-medium",
