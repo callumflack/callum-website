@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { allPosts } from "contentlayer/generated";
 import config from "@repo/ui/config";
+import { allPosts } from "contentlayer/generated";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return Promise.resolve([
@@ -18,6 +18,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${config.PUBLIC_URL}/writing`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${config.PUBLIC_URL}/what-i-want`,
       lastModified: new Date(),
     },
     ...allPosts.map((post) => ({
