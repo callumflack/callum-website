@@ -50,7 +50,7 @@ export default function HomePage(): JSX.Element {
           <div className="pb-gap">
             <Avatar />
           </div>
-          <div className="space-y-2 lg:w-10/12">
+          <div className="space-y-2">
             <Text as="h1" intent="title">
               Hi, I&rsquo;m Callum. I make beautiful hypertext products.
             </Text>
