@@ -7,14 +7,14 @@ import { allPosts } from "contentlayer/generated";
 import { Avatar } from "~/src/components/elements/avatar";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "The work and team I'm after",
 };
 
 const file = allPosts.filter(
-  (p) => p.category === "home" && p.title.includes("What I want")
+  (p) => p.category === "home" && p.slug.includes("what-i-want")
 );
 
-export default function AboutPage() {
+export default function WhatIWantPage() {
   return (
     <PageWrapper>
       <div className="container pb-w20 pt-w12 [&>header]:!space-y-0 [&>header]:!pb-small">

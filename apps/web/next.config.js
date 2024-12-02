@@ -45,6 +45,11 @@ const nextConfig = {
         destination: "/about",
         permanent: false,
       },
+      {
+        source: "/what-i-want",
+        destination: "/the-work-and-team-im-after",
+        permanent: true,
+      },
     ];
   },
 };
