@@ -8,6 +8,7 @@ export const featuredWorkSlugs = [
   "kalaurie",
   "the-library-of-economic-possibility",
   "vana",
+  "epic-guide-app",
   "replier",
   "studio-round",
   "anchor-ceramics",

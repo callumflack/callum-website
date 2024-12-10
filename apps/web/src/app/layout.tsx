@@ -21,7 +21,8 @@ export const metadata: Metadata = {
     default: "Callum Flack",
     template: "%s — Callum Flack",
   },
-  description: "Designer who codes. Writes about creativity and process.",
+  description:
+    "Design engineer & product leader. Writes about code, design, process and creativity.",
 };
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-viewport
