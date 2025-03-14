@@ -1,4 +1,6 @@
-# Callum's sites
+# Callum's sites (deprecated)
+
+NB! As of 25-03-14, this repo is _**DEPRECATED**_ in favour of [callum-website-2025](https://github.com/callumflack/callum-website-2025): a single site with no package system and an improved design.
 
 My personal website and notes site using a single design theme.
 
